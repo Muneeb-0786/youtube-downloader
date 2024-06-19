@@ -37,6 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         format: format.container,
         itag: format.itag,
       })),
+      info: info.formats
     };
 
     res.status(200).json(videoInfo);

@@ -30,6 +30,7 @@ interface VideoInfo {
   author: AuthorInfo;
   video: VideoFormat[];
   audio: AudioFormat[];
+  info: any;
 }
 
 export default function Home() {
@@ -81,6 +82,15 @@ export default function Home() {
         </button>
         {error && <p>Error: {error}</p>}
       </div>
+
+      {videoInfo?.info?.map((format: any) => (
+        <div key={format.url}>
+          <a href={format.url} download target="_blank">
+            {format.mimeType.split(";")[0] + " "}
+            {format.hasVideo ? format.height + "p" : ""}
+          </a>
+        </div>
+      ))}
 
       {videoInfo && (
         <motion.div
