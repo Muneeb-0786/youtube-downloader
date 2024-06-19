@@ -108,14 +108,16 @@ export default function Home() {
               <p>
                 Download Free video {format.quality} - {format.format}
               </p>
-              <button
+              <a
                 className="bg-green-400 px-5 py-3 rounded"
                 style={{ borderRadius: "10px" }}
                 key={format.itag}
-                onClick={() => downloadFormat("video")}
+                href={`/api/download?videoUrl=${url}&format=video`}
+                target="_blank"
+                // onClick={() => downloadFormat("video")}
               >
                 Download
-              </button>
+              </a>
             </div>
           ))}
           <h2>Audio Formats</h2>
